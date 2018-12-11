@@ -105,13 +105,14 @@ namespace DrinksApp.Drinks.Data
         public void DisplayMenu()
         {
             
-            Console.WriteLine("\nWelcome to the Bar! Select a drink category to get started.\n");
+            Console.WriteLine("\nWelcome to the Bar! Select a drink category to get started.\n If you would like to close out, write Close Out.");
             foreach (var category in DrinkCategories)
             {
                 Console.WriteLine(category);
             }
             Console.WriteLine("-----------");
             SelectFromMenu();
+            
         }
 
         public void SelectFromMenu()
@@ -150,7 +151,7 @@ namespace DrinksApp.Drinks.Data
                         else
                         {
                             Console.WriteLine("Please enter a valid input.");
-                            Console.ReadLine();
+                            SelectFromMenu();
                         }
 
                     }
@@ -180,7 +181,13 @@ namespace DrinksApp.Drinks.Data
                         else
                         {
                             Console.WriteLine("Please enter a valid input.");
+                            SelectFromMenu();
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid input");
+                        SelectFromMenu();
                     }
                 }
                 else if (userInput == "Cold")
@@ -219,14 +226,16 @@ namespace DrinksApp.Drinks.Data
                         else
                         {
                             Console.WriteLine("Please enter a valid input.");
+                            SelectFromMenu();
                         }
                     }
-                    else if (userInput == "Colas")
+                    else if (userInput == "Cola")
                     {
                         foreach (var item in NonAlcoholicColdColaDrinks)
                         {
                             Console.WriteLine(item);
                         }
+                        userInput = Console.ReadLine();
                         if (userInput == "Coke")
                         {
                             MenuOrder(userInput);
@@ -262,9 +271,20 @@ namespace DrinksApp.Drinks.Data
                         else
                         {
                             Console.WriteLine("Please enter a valid input");
+                            SelectFromMenu();
                         }
                         
                     }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid input");
+                        SelectFromMenu();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                    SelectFromMenu();
                 }
             }
             else if (userInput == "Alcoholic")
@@ -308,6 +328,8 @@ namespace DrinksApp.Drinks.Data
                     else
                     {
                         Console.WriteLine("Please enter a valid input");
+                        SelectFromMenu();
+
                     }
                 }
                 else if (userInput == "Wine")
@@ -336,6 +358,7 @@ namespace DrinksApp.Drinks.Data
                     else
                     {
                         Console.WriteLine("Please enter a valid input");
+                        SelectFromMenu();
                     }
                 }
                 else if (userInput == "Liquor")
@@ -372,16 +395,29 @@ namespace DrinksApp.Drinks.Data
                     else
                     {
                         Console.WriteLine("Please enter a valid input");
+                        SelectFromMenu();
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                    SelectFromMenu();
+                }
+            }
+            else if (userInput == "Close Out")
+            {
+                Console.WriteLine("The charge for your order is $X.");
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("Please enter a valid input");
-                Console.ReadLine();
+                foreach (var item in DrinkCategories)
+                {
+                    Console.WriteLine(item);
+                }
+                SelectFromMenu();
             }
-
-             
         }
 
         public void MenuOrder(string userInput)
