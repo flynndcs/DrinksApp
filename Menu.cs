@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace DrinksApp.Drinks.Data
 {
@@ -8,98 +8,98 @@ namespace DrinksApp.Drinks.Data
 
         Order UserOrder = new Order();
 
-        public static string[] DrinkCategories { get; private set; } = 
+        public static Dictionary<string, int> DrinkCategories { get; private set; } = new Dictionary<string, int>
         {
-            "Non-Alcoholic",
-            "Alcoholic"
+            { "Non-Alcoholic", 0 },
+            { "Alcoholic", 0 }
         };
 
-        public static string[] NonAlcoholicDrinkCategories { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicDrinkCategories { get; private set; } = new Dictionary<string, int>
         {
-            "Hot",
-            "Cold"
+            { "Hot", 0 },
+            { "Cold", 0 }
         };
 
-        public static string[] AlcoholicDrinkCategories { get; private set; } =
+        public static Dictionary<string, int> AlcoholicDrinkCategories { get; private set; } = new Dictionary<string, int>
         {
-            "Beer",
-            "Wine",
-            "Liquor"
+            { "Beer", 0 },
+            { "Wine", 0 },
+            { "Liquor", 0 }
+        }; 
+
+        public static Dictionary<string, int> NonAlcoholicHotDrinkCategories { get; private set; } = new Dictionary<string, int>
+        {
+            {"Coffee", 0 },
+            { "Tea", 0 }
         };
 
-        public static string[] NonAlcoholicHotDrinkCategories { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicHotCoffeeDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "Coffee",
-            "Tea"
+            { "Regular", 0 },
+            { "Decaf", 0 }
         };
 
-        public static string[] NonAlcoholicHotCoffeeDrinks { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicHotTeaDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "Regular",
-            "Decaf"
+            { "Black", 3 },
+            { "Green", 3 },
+            { "Herbal", 4 },
+            { "Oolong", 5 }
         };
 
-        public static string[] NonAlcoholicHotTeaDrinks { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicColdMilkDrinkCategories { get; private set; } = new Dictionary<string, int>
         {
-            "Black",
-            "Green",
-            "Herbal",
-            "Oolong"
+            { "Whole", 3 },
+            { "2%", 3 },
+            { "Skim", 3 }
         };
 
-        public static string[] NonAlcoholicColdMilkDrinkCategories { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicColdColaDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "Whole",
-            "2%",
-            "Skim",
+            { "Coke", 3 },
+            { "Pepsi", 3 },
+            { "Dr. Pepper", 3 },
+            { "Sprite", 3 },
+            { "Root Beer", 4 },
+            { "Orange", 3 },
+            { "Grape", 3 },
+            { "Big Red", 3 }
         };
 
-        public static string[] NonAlcoholicColdColaDrinks { get; private set; } =
+        public static Dictionary<string, int> NonAlcoholicColdDrinkCategories { get; private set; } = new Dictionary<string, int>
         {
-            "Coke",
-            "Pepsi",
-            "Dr. Pepper",
-            "Sprite",
-            "Root Beer",
-            "Orange",
-            "Grape",
-            "Big Red"
+            { "Water", 1 },
+            { "Sparkling Water", 2 },
+            { "Milk", 0 },
+            { "Cola", 0 }
         };
 
-        public static string[] NonAlcoholicColdDrinkCategories { get; private set; } =
+        public static Dictionary<string, int> AlcoholicBeerDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "Water",
-            "Sparkling Water",
-            "Milk",
-            "Cola"
+            { "IPA", 6 },
+            { "Stout/Porter", 7 },
+            { "Ale", 5 },
+            { "Lager", 4 },
+            { "Sour", 7 },
+            { "Malt", 4 }
         };
 
-        public static string[] AlcoholicBeerDrinks { get; private set; } =
+        public static Dictionary<string, int> AlcoholicWineDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "IPA",
-            "Stout/Porter",
-            "Ale",
-            "Lager",
-            "Sour",
-            "Malt"
+            { "Red", 7 },
+            { "White", 6 },
+            { "Sparkling", 5 },
+            { "Blend", 4 }
         };
 
-        public static string[] AlcoholicWineDrinks { get; private set; } =
+        public static Dictionary<string, int> AlcoholicLiquorDrinks { get; private set; } = new Dictionary<string, int>
         {
-            "Red",
-            "White",
-            "Sparkling",
-            "Blend"
-        };
-
-        public static string[] AlcoholicLiquorDrinks { get; private set; } =
-        {
-            "Liquers",
-            "Whiskey",
-            "Vodka",
-            "Gin",
-            "Rum",
-            "Tequila"
+            { "Liquers", 4 },
+            { "Whiskey", 6 },
+            { "Vodka", 5 },
+            { "Gin", 5 },
+            { "Rum", 6 },
+            { "Tequila", 6 }
         };
 
         public void DisplayMenu()
@@ -430,6 +430,10 @@ namespace DrinksApp.Drinks.Data
             else if (userInput == "Close Out")
             {
                 Console.Clear();
+                //foreach (var item in UserOrder)
+                //{
+                //    //go through dictionaries and match up prices with items
+                //}
                 Console.WriteLine("The charge for your order is $X.");
                 Console.ReadLine();
             }
