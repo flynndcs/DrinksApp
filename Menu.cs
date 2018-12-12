@@ -106,20 +106,21 @@ namespace DrinksApp.Drinks.Data
         {
             
             Console.WriteLine("\nWelcome to the Bar! Select a drink category to get started.\n If you would like to close out, write Close Out.");
-            foreach (var category in DrinkCategories)
-            {
-                Console.WriteLine(category);
-            }
-            Console.WriteLine("-----------");
             SelectFromMenu();
             
         }
 
         public void SelectFromMenu()
         {
+            Console.WriteLine("--------");
+            foreach (var item in DrinkCategories)
+            {
+                Console.WriteLine(item);
+            }
             string userInput = Console.ReadLine();
             if (userInput == "Non-Alcoholic")
             {
+                Console.Clear();
                 foreach (var category in NonAlcoholicDrinkCategories)
                 {
                     Console.WriteLine(category);
@@ -127,6 +128,7 @@ namespace DrinksApp.Drinks.Data
                 userInput = Console.ReadLine();
                 if (userInput == "Hot")
                 {
+                    Console.Clear();
                     foreach (var item in NonAlcoholicHotDrinkCategories)
                     {
                         Console.WriteLine(item);
@@ -134,6 +136,7 @@ namespace DrinksApp.Drinks.Data
                     userInput = Console.ReadLine();
                     if (userInput == "Coffee")
                     {
+                        Console.Clear();
                         foreach (var item in NonAlcoholicHotCoffeeDrinks)
                         {
                             Console.WriteLine(item);
@@ -150,6 +153,7 @@ namespace DrinksApp.Drinks.Data
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Please enter a valid input.");
                             SelectFromMenu();
                         }
@@ -157,6 +161,7 @@ namespace DrinksApp.Drinks.Data
                     }
                     else if (userInput == "Tea")
                     {
+                        Console.Clear();
                         foreach (var item in NonAlcoholicHotTeaDrinks)
                         {
                             Console.WriteLine(item);
@@ -180,18 +185,21 @@ namespace DrinksApp.Drinks.Data
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Please enter a valid input.");
                             SelectFromMenu();
                         }
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Please enter a valid input");
                         SelectFromMenu();
                     }
                 }
                 else if (userInput == "Cold")
                 {
+                    Console.Clear();
                     foreach (var item in NonAlcoholicColdDrinkCategories)
                     {
                         Console.WriteLine(item);
@@ -207,6 +215,7 @@ namespace DrinksApp.Drinks.Data
                     }
                     else if (userInput == "Milk")
                     {
+                        Console.Clear();
                         foreach (var item in NonAlcoholicColdMilkDrinkCategories)
                         {
                             Console.WriteLine(item);
@@ -225,12 +234,14 @@ namespace DrinksApp.Drinks.Data
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Please enter a valid input.");
                             SelectFromMenu();
                         }
                     }
                     else if (userInput == "Cola")
                     {
+                        Console.Clear();
                         foreach (var item in NonAlcoholicColdColaDrinks)
                         {
                             Console.WriteLine(item);
@@ -270,6 +281,7 @@ namespace DrinksApp.Drinks.Data
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Please enter a valid input");
                             SelectFromMenu();
                         }
@@ -277,18 +289,21 @@ namespace DrinksApp.Drinks.Data
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Please enter a valid input");
                         SelectFromMenu();
                     }
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Please enter a valid input");
                     SelectFromMenu();
                 }
             }
             else if (userInput == "Alcoholic")
             {
+                Console.Clear();
                 foreach (var category in AlcoholicDrinkCategories)
                 {
                     Console.WriteLine(category);
@@ -296,6 +311,7 @@ namespace DrinksApp.Drinks.Data
                 userInput = Console.ReadLine();
                 if (userInput == "Beer")
                 {
+                    Console.Clear();
                     foreach (var item in AlcoholicBeerDrinks)
                     {
                         Console.WriteLine(item);
@@ -327,6 +343,7 @@ namespace DrinksApp.Drinks.Data
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Please enter a valid input");
                         SelectFromMenu();
 
@@ -334,6 +351,7 @@ namespace DrinksApp.Drinks.Data
                 }
                 else if (userInput == "Wine")
                 {
+                    Console.Clear();
                     foreach (var item in AlcoholicWineDrinks)
                     {
                         Console.WriteLine(item);
@@ -357,12 +375,14 @@ namespace DrinksApp.Drinks.Data
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Please enter a valid input");
                         SelectFromMenu();
                     }
                 }
                 else if (userInput == "Liquor")
                 {
+                    Console.Clear();
                     foreach (var item in AlcoholicLiquorDrinks)
                     {
                         Console.WriteLine(item);
@@ -394,28 +414,30 @@ namespace DrinksApp.Drinks.Data
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Please enter a valid input");
                         SelectFromMenu();
                     }
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Please enter a valid input");
+                    
                     SelectFromMenu();
                 }
             }
             else if (userInput == "Close Out")
             {
+                Console.Clear();
                 Console.WriteLine("The charge for your order is $X.");
                 Console.ReadLine();
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Please enter a valid input");
-                foreach (var item in DrinkCategories)
-                {
-                    Console.WriteLine(item);
-                }
+                
                 SelectFromMenu();
             }
         }
