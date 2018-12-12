@@ -35,8 +35,8 @@ namespace DrinksApp.Drinks.Data
 
         public static Dictionary<string, int> NonAlcoholicHotCoffeeDrinks { get; private set; } = new Dictionary<string, int>
         {
-            { "Regular", 0 },
-            { "Decaf", 0 }
+            { "Regular", 2 },
+            { "Decaf", 2 }
         };
 
         public static Dictionary<string, int> NonAlcoholicHotTeaDrinks { get; private set; } = new Dictionary<string, int>
@@ -102,6 +102,46 @@ namespace DrinksApp.Drinks.Data
             { "Tequila", 6 }
         };
 
+        public static Dictionary<string, int> MasterPriceList { get; private set; } = new Dictionary<string, int>
+        {
+            { "Regular", 2 },
+            { "Decaf", 2 },
+            { "Black", 3 },
+            { "Green", 3 },
+            { "Herbal", 4 },
+            { "Oolong", 5 },
+            { "Whole", 3 },
+            { "2%", 3 },
+            { "Skim", 3 },
+            { "Coke", 3 },
+            { "Pepsi", 3 },
+            { "Dr. Pepper", 3 },
+            { "Sprite", 3 },
+            { "Root Beer", 4 },
+            { "Orange", 3 },
+            { "Grape", 3 },
+            { "Big Red", 3 },
+            { "Water", 1 },
+            { "Sparkling Water", 2 },
+            { "IPA", 6 },
+            { "Stout/Porter", 7 },
+            { "Ale", 5 },
+            { "Lager", 4 },
+            { "Sour", 7 },
+            { "Malt", 4 },
+            { "Red", 7 },
+            { "White", 6 },
+            { "Sparkling", 5 },
+            { "Blend", 4 },
+            { "Liquers", 4 },
+            { "Whiskey", 6 },
+            { "Vodka", 5 },
+            { "Gin", 5 },
+            { "Rum", 6 },
+            { "Tequila", 6 }
+
+        };
+
         public void DisplayMenu()
         {
             
@@ -125,6 +165,7 @@ namespace DrinksApp.Drinks.Data
                 {
                     Console.WriteLine(category);
                 }
+                //var dic = NonAlcoholicDrinkCategories;
                 userInput = Console.ReadLine();
                 if (userInput == "Hot")
                 {
@@ -429,12 +470,13 @@ namespace DrinksApp.Drinks.Data
             }
             else if (userInput == "Close Out")
             {
+                int OrderSum = 0;
                 Console.Clear();
-                //foreach (var item in UserOrder)
-                //{
-                //    //go through dictionaries and match up prices with items
-                //}
-                Console.WriteLine("The charge for your order is $X.");
+                foreach (string item in UserOrder)
+                {
+                    OrderSum = OrderSum + MasterPriceList[item];
+                }
+                Console.WriteLine("The charge for your order is " + OrderSum);
                 Console.ReadLine();
             }
             else
@@ -448,14 +490,8 @@ namespace DrinksApp.Drinks.Data
 
         public void MenuOrder(string userInput)
         {
-            if (UserOrder.DrinkOrder.Count == 0)
-            {
-                UserOrder.DrinkOrder.Add(userInput);
-            }
-            else
-            {
-                UserOrder.DrinkOrder.Add(", " + userInput);
-            }
+
+            UserOrder.DrinkOrder.Add(userInput);
             
             Console.Clear();
             Console.WriteLine("\n" + userInput + " has been added to your order.");
