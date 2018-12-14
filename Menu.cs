@@ -145,7 +145,7 @@ namespace DrinksApp.Drinks.Data
         public void DisplayMenu()
         {
             
-            Console.WriteLine("\nWelcome to the Bar! Select a drink category to get started.\n If you would like to close out, write Close Out.");
+            Console.WriteLine("\nWelcome to the Bar! Select a drink category to get started.\nIf you would like to close out, write Close Out.");
             SelectFromMenu();
             
         }
@@ -155,15 +155,17 @@ namespace DrinksApp.Drinks.Data
             Console.WriteLine("--------");
             foreach (var item in DrinkCategories)
             {
-                Console.WriteLine(item);
+                string MenuItem = item.Key;
+                Console.WriteLine(MenuItem);
             }
             string userInput = Console.ReadLine();
             if (userInput == "Non-Alcoholic")
             {
                 Console.Clear();
-                foreach (var category in NonAlcoholicDrinkCategories)
+                foreach (var item in NonAlcoholicDrinkCategories)
                 {
-                    Console.WriteLine(category);
+                    string MenuItem = item.Key;
+                    Console.WriteLine(MenuItem);
                 }
                 //var dic = NonAlcoholicDrinkCategories;
                 userInput = Console.ReadLine();
@@ -172,7 +174,8 @@ namespace DrinksApp.Drinks.Data
                     Console.Clear();
                     foreach (var item in NonAlcoholicHotDrinkCategories)
                     {
-                        Console.WriteLine(item);
+                        string MenuItem = item.Key;
+                        Console.WriteLine(MenuItem);
                     }
                     userInput = Console.ReadLine();
                     if (userInput == "Coffee")
@@ -180,7 +183,7 @@ namespace DrinksApp.Drinks.Data
                         Console.Clear();
                         foreach (var item in NonAlcoholicHotCoffeeDrinks)
                         {
-                            Console.WriteLine(item);
+                            Console.WriteLine(item.ToString().Trim('[', ']'));
                         }
                         userInput = Console.ReadLine();
                         if (userInput == "Regular")
@@ -205,7 +208,7 @@ namespace DrinksApp.Drinks.Data
                         Console.Clear();
                         foreach (var item in NonAlcoholicHotTeaDrinks)
                         {
-                            Console.WriteLine(item);
+                            Console.WriteLine(item.ToString().Trim('[', ']'));
                         }
                         userInput = Console.ReadLine();
                         if (userInput == "Black")
@@ -243,7 +246,8 @@ namespace DrinksApp.Drinks.Data
                     Console.Clear();
                     foreach (var item in NonAlcoholicColdDrinkCategories)
                     {
-                        Console.WriteLine(item);
+                        string MenuItem = item.Key;
+                        Console.WriteLine(MenuItem);
                     }
                     userInput = Console.ReadLine();
                     if (userInput == "Water")
@@ -259,7 +263,7 @@ namespace DrinksApp.Drinks.Data
                         Console.Clear();
                         foreach (var item in NonAlcoholicColdMilkDrinkCategories)
                         {
-                            Console.WriteLine(item);
+                            Console.WriteLine(item.ToString().Trim('[', ']'));
                         }
                         if (userInput == "Skim")
                         {
@@ -285,7 +289,7 @@ namespace DrinksApp.Drinks.Data
                         Console.Clear();
                         foreach (var item in NonAlcoholicColdColaDrinks)
                         {
-                            Console.WriteLine(item);
+                            Console.WriteLine(item.ToString().Trim('[', ']'));
                         }
                         userInput = Console.ReadLine();
                         if (userInput == "Coke")
@@ -345,9 +349,10 @@ namespace DrinksApp.Drinks.Data
             else if (userInput == "Alcoholic")
             {
                 Console.Clear();
-                foreach (var category in AlcoholicDrinkCategories)
+                foreach (var item in AlcoholicDrinkCategories)
                 {
-                    Console.WriteLine(category);
+                    string MenuItem = item.Key;
+                    Console.WriteLine(MenuItem);
                 }
                 userInput = Console.ReadLine();
                 if (userInput == "Beer")
@@ -355,7 +360,7 @@ namespace DrinksApp.Drinks.Data
                     Console.Clear();
                     foreach (var item in AlcoholicBeerDrinks)
                     {
-                        Console.WriteLine(item);
+                        Console.WriteLine(item.ToString().Trim('[', ']'));
                     }
                     userInput = Console.ReadLine();
                     if (userInput == "IPA")
@@ -395,7 +400,7 @@ namespace DrinksApp.Drinks.Data
                     Console.Clear();
                     foreach (var item in AlcoholicWineDrinks)
                     {
-                        Console.WriteLine(item);
+                        Console.WriteLine(item.ToString().Trim('[', ']'));
                     }
                     userInput = Console.ReadLine();
                     if (userInput == "Red")
@@ -426,7 +431,7 @@ namespace DrinksApp.Drinks.Data
                     Console.Clear();
                     foreach (var item in AlcoholicLiquorDrinks)
                     {
-                        Console.WriteLine(item);
+                        Console.WriteLine(item.ToString().Trim('[',']'));
                     }
                     userInput = Console.ReadLine();
                     if (userInput == "Liquers")
@@ -476,7 +481,8 @@ namespace DrinksApp.Drinks.Data
                 {
                     OrderSum = OrderSum + MasterPriceList[item];
                 }
-                Console.WriteLine("The charge for your order is " + OrderSum);
+                Console.WriteLine(UserOrder.ToString());
+                Console.WriteLine("---------\nThe charge for your order is $" + OrderSum);
                 Console.ReadLine();
             }
             else
@@ -495,7 +501,7 @@ namespace DrinksApp.Drinks.Data
             
             Console.Clear();
             Console.WriteLine("\n" + userInput + " has been added to your order.");
-            Console.WriteLine("Order: \n " + UserOrder.ToString() + "\n");
+            Console.WriteLine("Order: \n" + UserOrder.ToString() + "\n");
             
             DisplayMenu();
         }

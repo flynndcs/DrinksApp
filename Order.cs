@@ -16,14 +16,7 @@ namespace DrinksApp
         {
             return GetEnumerator();
         }
-
-
-        //public IEnumerator GetEnumerator()
-        //{
-        //    //implement??
-
-        //}
-
+        
         public override string ToString()
         { 
            
@@ -45,6 +38,7 @@ namespace DrinksApp
             }
             return OrderString.TrimEnd(',', ' ');
         }
+
     }
 }
 
