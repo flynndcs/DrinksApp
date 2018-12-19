@@ -482,7 +482,10 @@ namespace DrinksApp.Drinks.Data
                     OrderSum = OrderSum + MasterPriceList[item];
                 }
                 Console.WriteLine(UserOrder.ToString());
-                Console.WriteLine("---------\nThe charge for your order is $" + OrderSum);
+                Console.WriteLine("---------\nThe charge for your order is $" + OrderSum +".\nPlease enter your name.");
+                var DrinkCustomer = new Customer(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Thank you, " + DrinkCustomer.CustomerName + ".");
                 Console.ReadLine();
             }
             else
